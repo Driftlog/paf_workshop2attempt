@@ -34,6 +34,11 @@ public class RSVPService {
     }
 
     public boolean updateRSVP(RSVP rsvp) {
+        RSVP checkRSVP = (repo.getRSVP(rsvp.getFullName()));
+        if (checkRSVP == null) {
+            return false;
+        }
+
         return repo.updateRSVP(rsvp);
     }
 }

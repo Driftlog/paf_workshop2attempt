@@ -2,6 +2,7 @@ package sg.edu.nus.iss.paf_workshop2attempt.repo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -48,12 +49,15 @@ public class RSVPRepo {
     }
 
     public RSVP getRSVP(String name) {
-        RSVP rsvp = template.queryForObject(getSQL,BeanPropertyRowMapper.newInstance(RSVP.class), name);
-        return rsvp;
+        List<RSVP> rsvp = template.query(getSQL,BeanPropertyRowMapper.newInstance(RSVP.class), name);
+        if (rsvp.isEmpty()) {
+            return null;
+        }
+
+        return rsvp.get(0);
     }
 
     public boolean insertRSVP(final RSVP rsvp) {
-
         int status = template.update(insertSQL, rsvp.getFullName(), rsvp.getEmail(), rsvp.getPhone(), rsvp.getConfirmDate(), rsvp.getComment());
         return status > 0;
     }

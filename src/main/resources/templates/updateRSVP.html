@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <h1>RSVP Form</h1>
-    <form action="#" data-th:action="@{/api/rsvp/rsvp.email}" data-th-object="${rsvp}" method="post">
+    <form action="#" data-th-action="@{/api/rsvp/{email}}" data-th-object="${rsvp}" method="POST">
         <label for="email">Email: <input id="email" name="email" type="email" required data-th-field="*{email}"> </label>
     </br>
         <label for="phone">Phone Number: <input id="phone" name="phone" type="number" required data-th-field="*{phone}"> </label>
@@ -16,6 +16,9 @@
     </br>
         <label for="comment">Enter Comment here <textarea id="comment" name="comment" required data-th-field="*{comment}"> </textarea> </label>
     </br>
-        <button type="submit"> Update RSVP</button>
+    <input type="submit" value="Update RSVP">
+    </br>
     </form>
+    
+</body>
 </html>
