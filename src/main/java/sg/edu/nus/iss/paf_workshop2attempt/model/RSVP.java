@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RSVP {
     
-    private String name;
+    private String fullName;
     private String email;
     private int phone;
     private Date confirmDate;

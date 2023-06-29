@@ -34,7 +34,7 @@ public class RSVPRepo {
 
         while (rs.next()) {
             RSVP rsvp = new RSVP();
-            rsvp.setName(rs.getString("full_name"));
+            rsvp.setFullName(rs.getString("full_name"));
             rsvp.setEmail(rs.getString("email"));
             rsvp.setPhone(rs.getInt("phone"));
             rsvp.setConfirmDate(rs.getDate("confirm_date"));
@@ -54,7 +54,7 @@ public class RSVPRepo {
 
     public boolean insertRSVP(final RSVP rsvp) {
 
-        int status = template.update(insertSQL, rsvp.getName(), rsvp.getEmail(), rsvp.getPhone(), rsvp.getConfirmDate(), rsvp.getComment());
+        int status = template.update(insertSQL, rsvp.getFullName(), rsvp.getEmail(), rsvp.getPhone(), rsvp.getConfirmDate(), rsvp.getComment());
         return status > 0;
     }
 
