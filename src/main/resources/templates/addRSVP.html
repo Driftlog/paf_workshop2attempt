@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>RSVP Form</h1>
+    <form action="#" data-th-action="@{/api/rsvp}" data-th-object="${rsvp}" method="POST">
+        <label for="name">Name: <input id="name" name="name" type="text" required data-th-field="*{name}"> </label>
+    </br>
+        <label for="email">Email: <input id="email" name="email" type="email" required data-th-field="*{email}"> </label>
+    </br>
+        <label for="phone">Phone Number: <input id="phone" name="phone" type="number" required data-th-field="*{phone}"> </label>
+    </br>
+        <label for="confirmDate">Enter date: <input id="confirmDate" name="confirmDate" type="date" required data-th-field="*{confirmDate}"> </label>
+    </br>
+        <label for="comment">Comments? <textarea id="comment" name="comment" required data-th-field="*{comment}"> </textarea> </label>
+    </br>
+        <input type="submit" value="Submit your RSVP">
+    </form>
+    <a th:href="@{/api/updateRSVP}">Click here to update your RSVP!</a>
+</body>
+</html>
